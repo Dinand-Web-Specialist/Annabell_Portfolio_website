@@ -31,13 +31,32 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 faders.forEach(fader => observer.observe(fader));
 
-// Hover-effect verbeteren met JavaScript (Services-sectie)
+// Hover-effect verbeteren met ondersteuning voor touch events
 document.querySelectorAll('.service-item').forEach(service => {
+    // Voor desktops (hover)
     service.addEventListener('mouseenter', () => {
         service.style.transition = 'all 0.3s ease';
         service.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
     });
+
     service.addEventListener('mouseleave', () => {
         service.style.boxShadow = 'none';
     });
+
+    // Voor mobiele apparaten (touch)
+    service.addEventListener('touchstart', () => {
+        service.style.transition = 'all 0.3s ease';
+        service.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+    });
+
+    service.addEventListener('touchend', () => {
+        service.style.boxShadow = 'none';
+    });
+    //Dit reset de schaduw van alle items wanneer een gebruiker ergens anders op het scherm tikt.
+    document.body.addEventListener('touchstart', () => {
+        document.querySelectorAll('.service-item').forEach(service => {
+            service.style.boxShadow = 'none';
+        });
+    });
 });
+
