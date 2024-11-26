@@ -43,13 +43,13 @@ p.quote {
     padding: 0;
     margin: 0;
     display: flex; /* Flexbox voor gelijke verdeling */
-    justify-content: center; /* Centreer de knoppen */
+    justify-content: space-evenly; /* Centreer de knoppen */
     align-items: center; /* Verticaal gecentreerd */
     gap: 0px; /* Houd consistente ruimte tussen de knoppen */
 }
 
 .navbar ul li {
-    flex: 0 0 auto; /* Vaste grootte voor items */
+    flex: 1; /* Elk item neemt dezelfde ruimte in */
     width: 150px; /* Breedte van elke knop */
     text-align: center; /* Centreer de emoji */
     border-left: 1px solid white; /* Witte scheiding tussen knoppen */
@@ -75,14 +75,20 @@ p.quote {
 
 /* Responsieve aanpassingen */
 @media (max-width: 768px) {
-  .navbar ul li {
-      width: 80px; /* Maak knoppen iets smaller op mobiele schermen */
+    .navbar ul {
+      flex-direction: row; /* Zet de navigatie in een kolom */
+      justify-content: center;
+    }
+  
+    .navbar ul li {
+      border-left: 1px solid white; /* Verwijder scheidingen in kolomweergave */
+    }
+  
+    .navbar ul li a {
+      padding: 0px 0; /* Meer ruimte voor mobiel gebruik */
+    }
   }
 
-  .navbar ul {
-      justify-content: space-evenly; /* Ruimte tussen items */
-  }
-}
 /* Homepagina */
 .home {
     display: flex;
