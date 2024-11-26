@@ -23,7 +23,20 @@ p.quote {
     animation: fadePlaceholder 1s infinite alternate;
 
 }
-
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Container vult de volledige breedte */
+    height: auto; /* Past zich aan de inhoud aan */
+    overflow: hidden; /* Verberg delen die buiten de container vallen */
+  }
+  
+  .image-container img {
+    max-width: 100%; /* Afbeelding vult de breedte van de container */
+    height: auto; /* Houdt de oorspronkelijke verhoudingen */
+    object-fit: cover; /* Zorgt dat de afbeelding netjes bijsnijdt */
+  }
 /* Navigatiebalk */
 .navbar {
     max-width: 1200px; /* Maximale breedte voor de navigatiebalk */
@@ -96,7 +109,7 @@ p.quote {
     align-items: center;
     min-height: 100vh;
     padding: 40px;
-    background: white;
+    background: transparent;
 }
 .home .content h1 {
     font-size: 3em;
@@ -118,6 +131,20 @@ p.quote {
     max-width: 400px;
     border-radius: 10px;
 }
+.background-image {
+    flex: auto;
+    background-image: url('Image/Beviendo cafe.JPG'); /* Voeg je afbeelding toe */
+    background-size: cover; /* Zorg dat de afbeelding de hele container vult */
+    background-position: center; /* Centreer de afbeelding */
+    background-repeat: no-repeat; /* Voorkom herhaling van de afbeelding */
+    width: 100%; /* Containerbreedte */
+    height: 100vh; /* Volledige hoogte van het scherm */
+    color: white; /* Zorg dat de tekst zichtbaar is */
+    display: flex; /* Gebruik flexbox om tekst te centreren */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 
 /* About Me */
 .about-me-page {
@@ -176,6 +203,17 @@ p.quote {
     transform: scale(1.05);
     background: linear-gradient(to right, #fc466b, #3f5efb);
 }
+@media (hover: none) {
+    .service-item:hover {
+      transform: none;
+      background: linear-gradient(to right, #6a0dad, #6a0dad); /* Originele achtergrond */
+    }
+  }
+  @media (max-width: 768px) {
+    .service-item {
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+  }
 
 .service-item .hover-text {
     opacity: 0;
